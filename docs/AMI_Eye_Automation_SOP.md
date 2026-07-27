@@ -83,12 +83,12 @@
 
 ### 1. 案例背景
 本案例包含 5 段傳輸線，分別處於 5 種不同的介質與堆疊厚度（如 Substrate_3, Substrate_5880 等）。這類「多段介質阻抗匹配」在傳統設計中極難透過人工經驗優化。本工具的目標是在複雜環境下，自動尋找每一段線路最佳的 W/SP 組合。
-![多介質.png](../assets/%E5%A4%9A%E4%BB%8B%E8%B3%AA.png)
+![多介質.png](../assets/Example1_TL/%E5%A4%9A%E4%BB%8B%E8%B3%AA.png)
 
 ### 2. 初始狀態 (優化前)
 初始設計因阻抗匹配不良，眼圖品質較差，仍有極大的優化空間。下圖展示了待優化的 5 段傳輸線電路架構與初始參數。
-![初始參數_5傳輸線_電路.png](../assets/%E5%88%9D%E5%A7%8B%E5%8F%83%E6%95%B8_5%E5%82%B3%E8%BC%B8%E7%B7%9A_%E9%9B%BB%E8%B7%AF.png)
-![初始參數_5傳輸線_眼圖.png](../assets/%E5%88%9D%E5%A7%8B%E5%8F%83%E6%95%B8_5%E5%82%B3%E8%BC%B8%E7%B7%9A_%E7%9C%BC%E5%9C%96.png)
+![初始參數_5傳輸線_電路.png](../assets/Example1_TL/%E5%88%9D%E5%A7%8B%E5%8F%83%E6%95%B8_5%E5%82%B3%E8%BC%B8%E7%B7%9A_%E9%9B%BB%E8%B7%AF.png)
+![初始參數_5傳輸線_眼圖.png](../assets/Example1_TL/%E5%88%9D%E5%A7%8B%E5%8F%83%E6%95%B8_5%E5%82%B3%E8%BC%B8%E7%B7%9A_%E7%9C%BC%E5%9C%96.png)
 
 ---
 
@@ -103,7 +103,7 @@
 2.  **版本選擇**：選擇對應的 Ansys 版本 (支援最新 **2026 R1**)。
 3.  **掃描連線**：點擊 **「掃描開啟的專案 (Scan)」**，工具將自動偵測並列出當前所有已開啟的 AEDT 實例，請確認抓到正確的 Project、Design 與 Setup。
 
-![連接AEDT.png](../assets/%E9%80%A3%E6%8E%A5AEDT.png)
+![連接AEDT.png](../assets/Example1_TL/%E9%80%A3%E6%8E%A5AEDT.png)
 
 #### Step 2: 參數配置與雙節點工作流設定
 在「2. 參數 & 雙節點設定」分頁中，您可以完成從變數提取到專案建立的完整自動化配置。
@@ -127,7 +127,7 @@
     *   **適合場景**：需要手動微調 optiSLang 演算法設定、加入特殊的約束條件 (Constraints) 或二次確認節點連線。
     *   **結果**：系統僅會建立檔案，讓您能手動開啟專案進行最後調整後再按下執行。
 
-![參數設定.png](../assets/%E5%8F%83%E6%95%B8%E8%A8%AD%E5%AE%9A.png)
+![參數設定.png](../assets/Example1_TL/%E5%8F%83%E6%95%B8%E8%A8%AD%E5%AE%9A.png)
 
 #### Step 3: 生成與啟動
 點擊 **「▶ 生成橋接腳本 + 建立雙節點專案」**。
@@ -142,11 +142,11 @@
 *   **為什麼傳統方法做不到？** 若使用傳統參數掃描 (Parametric Sweep)，即便每個參數只取 3 個點，10 個參數就會產生 $3^{10} = 59,049$ 組組合。以一組模擬 30 秒計算，仍需耗時約 **20 天** 才能跑完，這在工程實務上完全不可行。
 *   **optiSLang 的優勢**：根據官方建議的 10*N 準則，僅需執行約 **100 次** 智慧抽樣模擬，即可精準掌握這 10 個參數之間的關鍵交互作用，將數週的工期縮短至 **50 分鐘內** 完成。
 
-![AMOP_數值圖.png](../assets/AMOP_%E6%95%B8%E5%80%BC%E5%9C%96.png)
+![AMOP_數值圖.png](../assets/Example1_TL/AMOP_%E6%95%B8%E5%80%BC%E5%9C%96.png)
 
 ### 5. AMOP 3D 響應曲面與 AI 預測模型
 系統自動建立 3D 響應曲面並定位最佳解 (Design 147)。
-![AMOP結果.png](../assets/AMOP%E7%B5%90%E6%9E%9C.png)
+![AMOP結果.png](../assets/Example1_TL/AMOP%E7%B5%90%E6%9E%9C.png)
 
 #### 📊 數據解讀 (如何讀懂結果圖)：
 透過 optiSLang 的 MOP 監控介面，我們可以獲得以下關鍵洞察：
@@ -160,10 +160,10 @@
 
 ### 6. OCO 最佳化搜尋過程
 在 AMOP 模型建立後，系統會啟動 OCO (Optimization) 節點進行精確搜尋，透過多次迭代確保鎖定全球最佳解。每一行代表一次精確的參數探索。
-![OCO_數值圖.png](../assets/OCO_%E6%95%B8%E5%80%BC%E5%9C%96.png)
+![OCO_數值圖.png](../assets/Example1_TL/OCO_%E6%95%B8%E5%80%BC%E5%9C%96.png)
 
 ### 7. 優化結果對照 (Before vs. After)
-![優化後的眼圖範例.png](../assets/%E5%84%AA%E5%8C%96%E5%BE%8C%E7%9A%84%E7%9C%BC%E5%9C%96%E7%AF%84%E4%BE%8B.png)
+![優化後的眼圖範例.png](../assets/Example1_TL/%E5%84%AA%E5%8C%96%E5%BE%8C%E7%9A%84%E7%9C%BC%E5%9C%96%E7%AF%84%E4%BE%8B.png)
 
 #### 📈 效能提升對比表
 | 項目 | 初始狀態 (Initial) | 優化後結果 (Optimized) | 改善幅度 |
@@ -173,7 +173,7 @@
 
 ### 8. 差勁設計對照 (Closed Eye)
 系統會自動識別並跳過此類設計。
-![差勁的眼圖範例.png](../assets/差勁的眼圖範例.png)
+![差勁的眼圖範例.png](../assets/Example1_TL/差勁的眼圖範例.png)
 
 ---
 
