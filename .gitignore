@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+dist/
+build/
+*.spec
+
+# Ansys AEDT
+*.aedtresults/
+*.aedb/
+*.lock
+*.asol
+*.tmp
+*.log
+*.pyaedt/
+
+# Project specific
+osl_result.csv
+ami_eye_auto.opd/
+ami_eye_auto.opf_autosave
+
+# Environment
+.gemini/
+.vscode/
+venv/
+
+# 不公開 Web 版本
+web/
+
+# 本機簡報與執行檔
+*.pptx
+*.exe
+*.mp4
+*.aedt
+*.aedtz
+models/

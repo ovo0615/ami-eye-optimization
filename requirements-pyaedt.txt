@@ -1,0 +1,3 @@
+pyaedt
+ansys-optislang-core
+pywin32
