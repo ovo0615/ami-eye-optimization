@@ -1,6 +1,5 @@
 """
 IBIS-AMI 眼圖自動化工具 (重構版 v3)
-此工具由虎門科技資深技術工程師 Jeff Hong 洪敬傑提供
 
 與 v2 相比：
 - 業務邏輯 (param_utils / bridge_builder / osl_workflow) 與 GUI 分離
@@ -162,8 +161,6 @@ class AMIEyeDashboard:
         self._build_t1()
         self._build_t2()
         self._build_t3()
-        tk.Label(self.root, text="此工具由虎門科技資深技術工程師 Jeff Hong 洪敬傑提供",
-                 bg="#0b0f19", fg="#8b949e", font=("微軟正黑體", 11)).pack(side="bottom", pady=8)
 
     # ── UI helpers ────────────────────────────────────────────
     def _lf(self, parent, text):
