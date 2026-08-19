@@ -25,7 +25,6 @@ else:
 class AMIEyeDashboard:
     """
     IBIS-AMI 眼圖自動化工具 (雙節點全功能版)
-    此工具由虎門科技資深技術工程師 Jeff Hong 洪敬傑提供
     """
     def __init__(self, root):
         self.root = root
@@ -114,8 +113,6 @@ class AMIEyeDashboard:
         self._build_t1()
         self._build_t2()
         self._build_t3()
-        tk.Label(self.root, text="此工具由虎門科技資深技術工程師 Jeff Hong 洪敬傑提供",
-                 bg="#0b0f19", fg="#8b949e", font=("微軟正黑體", 11)).pack(side="bottom", pady=8)
 
     def _lf(self, parent, text):
         f = tk.LabelFrame(parent, text=text, bg="#0b0f19", fg="#00f0ff", font=("微軟正黑體", 12, "bold"), bd=2)

@@ -201,7 +201,3 @@
 **A**: 不會。系統底層採用了背景工作執行緒 (Background Worker Thread) 處理與 AEDT 之間的 pythonnet 溝通，能有效防止主介面卡死，並解決潛在的 CLR 崩潰問題。
 
 ---
-
-<div style="text-align: center; color: #7f8c8d; font-size: 0.9em;">
-此工具由虎門科技資深技術工程師 Jeff Hong 洪敬傑 提供
-</div>
